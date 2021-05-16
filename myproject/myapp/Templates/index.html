@@ -1,0 +1,217 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href={% static "style.css" %}>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rancho&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Qwigley&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@100&display=swap" rel="stylesheet">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <link rel="icon" type="image/gif/png" href="/static/Cho_index/khlogo.png">
+    
+    <title>index</title>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header id="header">
+            <div class="top">
+                <div class="searchbar">
+                    <form action="{% url 'search' %}" method='get'>
+                        <input type="text" name='search' placeholder="Search" class='searchbox'>
+                        <button>Search</button>
+                    </form>
+                </div>
+                <div class="loginbar">
+                    {% if user.is_authenticated %}
+                    <li><p>Accout Name : {{user.username}}</p></li> 
+                    <li><a href= "{% url 'customerlogout' %}">Logout</a></li> 
+                    <li><a href= "{% url 'customerregistration' %}">Register</a></li> 
+                    <li><a class="addtocart" href="{% url 'mycart' %}"><img src="/static/carticon.png" alt="" width="20" height=auto></a></li>
+                    <li><a href= "{% url 'profile' %}"><img src="/static/profileicon.png" width="20" height=auto></a></li>
+                    {% else %}
+                    <div class="shopnow">
+                        <a href= "{% url 'customerlogin' %}">SHOP NOW</a>
+                    </div>
+                    {% endif %} 
+                </div>
+            </div>
+            
+            
+            <div class="Cw">
+                <a href="{% url 'index' %}"><img src="/static/Cho_index/khlogo.png"></a>
+            </div>
+        </header>  
+            
+        <nav class="navbar">
+              <ul>      
+                 <li><a class='index' href="{% url 'index' %}">Home <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span></a></li>
+                 <li><a class='navabout' href="#about">About <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span></a></li>
+                 <li><a class='allwatch' href="{% url 'category' %}">Store<span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span></a></li>
+                 <li><a class='contact' href="{% url 'contact' %}">Contact<span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span></a></li>
+                 <li><a class='fb' target="_blank" href="https://www.facebook.com/"><span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span><img src="/static/f.png"></a></li>
+                 <li><a class='ig' target="_blank" href="https://www.instagram.com/"><span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span><img src="/static/ig.png"></a></li>
+              <ul>
+        </nav>
+            
+        
+        
+            
+        <div class="main">
+            <div class="slider">
+                <div class="slides">
+                    <input type="radio" name="radio-btn" id="radio1">
+                    <input type="radio" name="radio-btn" id="radio2">
+                    <input type="radio" name="radio-btn" id="radio3">
+
+                    <div class="slide first"> 
+                        <img src="/static/essenindex.jpg" alt="">
+                    </div>
+                    <div class="slide"> 
+                        <img src="/static/essenindex.jpg" alt="">
+                    </div>
+                    <div class="slide"> 
+                        <img src="/static/essenindex.jpg" alt="">
+                    </div>
+                </div>
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                </div>
+
+                <div class="navigation-manual">
+                    <label for="radio1" class="manual-btn"></label>
+                    <label for="radio2" class="manual-btn"></label>
+                    <label for="radio3" class="manual-btn"></label>
+                </div>
+            </div>
+            <div class="about" id='about'>
+                <div class="pic-about" data-aos="fade-right">
+                    <img src="/static/Cho_index/abb.jpg" alt="">
+                </div>
+                <div class="text-about" data-aos="fade-left">
+                    <h2>เกี่ยวกับ "แก้วหอม"</h2>
+                    แก้วหอม เป็นแก้วพรุนที่ทำมาจากเศษกระจก <br>
+                    เหลือใช้มาเปลี่ยนรูปลักษณ์ สามารถดูดซับน้ำมันหอมระเหย <br> 
+                    ที่สามารถไล่ยุงหรือแมลงได้และยังสามารถทำให้บ้านมีกลิ่นหอม <br> 
+                    ทั้งรูปทรงและบรรจุภัณฑ์ก็ยังสามารถนำไปใช้ตกแต่งบ้านได้ด้วย <br> 
+                    <a href="#history"><button>อ่านเพิ่มเติม</button></a>
+                </div>
+            </div>
+
+            <div class="history" id="history">
+                <h2>ความเป็นมา</h2>
+                ประเทศไทยตั้งอยู่ในเขตร้อนชื้นอย่างที่ทุกคนรู้ มีแหล่งน้ำซึ่งเหมาะกับการเป็นที่อยู่และที่เพาะพันธุ์ของยุงและแมลงต่างๆ <br>
+                ทำให้ปัญหาเรื่องยุงเป็นปัญหาที่ทุกครัวเรือนพบเจอ และประเทศไทยมีจำนวนของเศษกระจกและเศษแก้วที่เหลือจากอุตสาหกรรม <br>
+                และขยะอยู่มากซึ่งการทำลายเศษกระจกจะสร้างมลพิษเป็นอย่างมาก <br> <br> 
+                จึงเกิดแนวคิดการนำปัญหาทั้งสองอย่างมาแก้ไขทำให้เกิด "แก้วหอม" แก้วที่มีน้ำหนักเบา ทนทาน สามารถดูดซับและกระจายกลิ่นได้เป็นอย่างดี
+            </div>
+            <div class="history-pic">
+                <div class="history-pic1" data-aos="zoom-out-right">
+                    <img src="/static/mosquito.jpg" alt="">
+                </div>
+                <div class="history-pic2" data-aos="zoom-out-left">
+                    <img src="/static/glass.jpg" alt="">
+                </div>
+            </div>
+            <div class="nature">
+                <div class="text">
+                    <h1>"เป็นมิตรต่อสิ่งแวดล้อม"</h1> <br>
+                    เป็นผลิตภัณฑ์ที่เป็นมิตรต่อสิ่งแวดล้อมในทุกขั้นตอนการผลิต
+                </div>
+                <div class="nature-pic" data-aos="flip-down">
+                    <img src="/static/forest.jpg" alt="">
+                </div>
+            </div>
+            
+            
+            <div class="footer">
+                <div class="term-privacy">
+                    TERMS AND CONDITIONS <br>
+                    PRIVACY POLICY <br>
+                </div>
+                <div class="address">
+                    ที่อยู่ 99 หมู่ 18, ถ.พหลโยธิน, ต.คลองหนึ่ง, <br>
+                    อ.คลองหลวง, จ.ปทุมธานี, 12120 <br>
+                    โทร 091-xxxxxxx 
+                </div>
+                <div class="footer-pic">
+                  <span>1</span>  
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+      AOS.init();
+    </script>
+    <script>
+        $(document).ready(function(){
+          // Add smooth scrolling to all links
+          $("a").on('click', function(event) {
+        
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+              // Prevent default anchor click behavior
+              event.preventDefault();
+        
+              // Store hash
+              var hash = this.hash;
+        
+              // Using jQuery's animate() method to add smooth page scroll
+              // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+              $('html, body').animate({
+                scrollTop: $(hash).offset().top
+              }, 800, function(){
+           
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+              });
+            } // End if
+          });
+        });
+    </script>
+    <script type="text/javascript">
+    var counter = 1;
+    setInterval(function(){
+        document.getElementById('radio' + counter).checked = true;
+        counter++;
+        if(counter > 3){
+            counter = 1;
+        }
+    }, 6000);
+    </script>
+</body>
+</html>
